@@ -34,7 +34,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
- <a class="navbar-brand" href="#">Мой сайт</a>
+ <a class="navbar-brand" href="#" id = "brand">Мой сайт</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
    
@@ -59,6 +59,19 @@ $.ajax({
 		}
 	});
 	return false;	
+});
+$("#brand").click(function() {
+		$.ajax({
+		type: "POST",
+		url: "getitem.php",
+		// передача в качестве строки
+		// кодирование выполняется "вручную"
+		data: {punkt:"home"},
+		success: function(data){
+			$("#cont").html(data);
+		}
+	});
+	return false;
 });
 $("#about").click(function() {
 		$.ajax({
